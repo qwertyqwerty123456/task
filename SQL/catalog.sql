@@ -1,55 +1,67 @@
 CREATE DATABASE `mydb`;
 USE `mydb` ;
 CREATE TABLE `categories` (
-  `id_categories` INT,
-  `title` CHAR(60),
-  `description` CHAR(200),
+  `id_categories` INT NOT NULL,
+  `title` CHAR(225) NOT NULL,
+  `description` CHAR(255),
   PRIMARY KEY (`id_categories`));
   
 CREATE TABLE `image` (
-  `id_image` INT,
-  `name` CHAR(60),
-  `alt` CHAR(60),
+  `id_image` INT NOT NULL,
+  `name` CHAR(225) NOT NULL,
+  `alt` CHAR(225) NOT NULL,
   PRIMARY KEY (`id_image`));
   
 CREATE TABLE `product` (
-  `id_product` INT,
-  `title` CHAR(60),
-  `price` INT,
-  `old_price` INT,
-  `discount_price` INT,
-  `description` CHAR(200),
-  `activity` TINYINT(1),
-  `id_categories` INT,
-  `id_image` INT,
+  `id_product` INT NOT NULL,
+  `title` CHAR(225) NOT NULL,
+  `price` INT NOT NULL,
+  `old_price` INT NOT NULL,
+  `discount_price` INT NOT NULL,
+  `description` CHAR(255),
+  `activity` TINYINT(1) NOT NULL,
+  `main_id_categories` INT NOT NULL,
+  `main_id_image` INT NOT NULL,
   PRIMARY KEY (`id_product`),
-  CONSTRAINT main_id_categories
-    FOREIGN KEY (`id_categories`)
-    REFERENCES `categories` (`id_categories`),
-  CONSTRAINT main_id_image
-    FOREIGN KEY (`id_image`)
+  CONSTRAINT main_id__categories
+    FOREIGN KEY (`main_id_categories`)
+    REFERENCES `categories` (`id_categories`) 
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT main_id__image
+    FOREIGN KEY (`main_id_image`)
     REFERENCES `image` (`id_image`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
   );
 
 CREATE TABLE `product_by_categories` (
-  `id_categories` INT,
-  `id_product` INT,
+  `id_categories` INT NOT NULL,
+  `id_product` INT NOT NULL,
   CONSTRAINT product_cat
     FOREIGN KEY (`id_product`)
-    REFERENCES `product` (`id_product`),
+    REFERENCES `product` (`id_product`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
   CONSTRAINT categories_prod
     FOREIGN KEY (`id_categories`)
-    REFERENCES `categories` (`id_categories`));
+    REFERENCES `categories` (`id_categories`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE);
 
 CREATE TABLE `product_image` (
-  `id_image` INT,
-  `id_product` INT,
+  `id_image` INT NOT NULL,
+  `id_product` INT NOT NULL,
   CONSTRAINT image_prod
     FOREIGN KEY (`id_image`)
-    REFERENCES `image` (`id_image`),
+    REFERENCES `image` (`id_image`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
   CONSTRAINT product_im
     FOREIGN KEY (`id_product`)
-    REFERENCES `product` (`id_product`));
+    REFERENCES `product` (`id_product`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE);
 
 INSERT INTO `categories` (`id_categories`,`title`,`description`) VALUES
 (1, 'Рубашки','Раздел с рубашками'),
