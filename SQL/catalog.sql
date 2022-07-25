@@ -2,23 +2,23 @@ CREATE DATABASE `mydb`;
 USE `mydb` ;
 CREATE TABLE `categories` (
   `id_categories` INT NOT NULL,
-  `title` CHAR(225) NOT NULL,
-  `description` CHAR(255),
+  `title` VARCHAR(225) NOT NULL,
+  `description` VARCHAR(255),
   PRIMARY KEY (`id_categories`));
   
 CREATE TABLE `image` (
   `id_image` INT NOT NULL,
-  `name` CHAR(225) NOT NULL,
-  `alt` CHAR(225) NOT NULL,
+  `name` VARCHAR(225) NOT NULL,
+  `alt` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_image`));
   
 CREATE TABLE `product` (
   `id_product` INT NOT NULL,
-  `title` CHAR(225) NOT NULL,
+  `title` VARCHAR(225) NOT NULL,
   `price` INT NOT NULL,
   `old_price` INT NOT NULL,
   `discount_price` INT NOT NULL,
-  `description` CHAR(255),
+  `description` VARCHAR(255),
   `activity` TINYINT(1) NOT NULL,
   `main_id_categories` INT NOT NULL,
   `main_id_image` INT NOT NULL,
@@ -80,7 +80,7 @@ INSERT INTO `image` (`id_image`,`name`, `alt`) VALUES
 (10, '10.png','Футболка с морским принтом'),
 (11, '11.png','Футболка с морским принтом');
 
-INSERT INTO `product` (`id_product`,`title`,`price`,`old_price`, `discount_price`,`description`,`activity`,`id_categories`,`id_image`) VALUES
+INSERT INTO `product` (`id_product`,`title`,`price`,`old_price`, `discount_price`,`description`,`activity`,`main_id_categories`,`main_id_image`) VALUES
 (1, 'Однотонная рубашка с коротким рукавом','1223','2555','1000','Однотонная рубашка',1,1,1),
 (2, 'Базовая рубашка','1299','2999','988','Базовая рубашка',1,1,2),
 (3, 'Рубашка изо льна','799','1299','599','Рубашка изо льна',0,1,3),
