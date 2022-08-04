@@ -1,0 +1,113 @@
+body {
+    font: 1.65rem / 1.2 Circe, sans-serif;
+    font-family: "Circe";
+    font-weight:300;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+
+}
+
+.header{
+    margin-left: 120px;
+}
+
+body textarea{
+    resize: none;
+}
+
+body h2{
+    color: #000000;
+}
+
+body li{
+    list-style-type: none;
+}
+
+body a{
+    text-decoration: none;
+    color: #696763;
+}
+
+section, .header_middle, .header_bottom{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+
+.container .sidebar{
+    width: 275px;
+    float: left;
+}
+
+.container .content{
+    float: left;
+    width: 925px;
+}
+
+    .container .content .item{
+        border: 1px solid #dadad8;
+        float: left;
+        margin-bottom: 28px;
+        margin-right: 28px;
+        width: 268px;
+        height: 425px;
+        position: relative;
+        z-index: 1;
+    }
+
+        .new{
+            position: absolute;
+            z-index: 2;
+        }
+
+                        .features_items h2{
+                            width: 235px;
+                            margin: 0 auto 30px;
+                        }
+
+                                .item_name{
+                                    font-size: 14px;
+                                    text-align: center;
+                                    margin-bottom: 15px;
+                                    margin-top: 10px;
+                                    word-wrap: break-word;
+                                }
+
+
+
+.left_sidebar li a:hover{
+    color: #006be5;
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+}
+.left_sidebar li{
+    margin-bottom: 11px;
+}
+
+
+.pagination{
+    clear: both;
+    width: 600px;
+    margin: 0 auto 20px auto;
+}
+
+.pagination li a{
+    display: block;
+    width: 25px;
+    text-align: center;
+    color: #000000;
+}
+
+.active {
+    background: #ffffff!important;
+    color: #006be5!important;
+}
+
+.pagination li{
+    display: inline-block;
+    margin-right: 15px;
+}
+
